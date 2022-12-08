@@ -31,14 +31,7 @@ const startApplication = () => {
         return;
       }
 
-      if ('edit' === page) {
-        lastPage = page;
-        if (ApplicationState.state.key === key) {
-          // interrupt animation if it's playing
-          const interruptAnimation = !AudioController.audio.paused;
-          ApplicationState.setState(EDITING, { interruptAnimation });
-          return;
-        }
+    
 
         loadAndEdit(key);
         return;
@@ -57,10 +50,7 @@ const startApplication = () => {
       }
     }
 
-    if (ApplicationState.state.page === PLAYING) {
-      setCreateMode({ interruptAnimation: true });
-      return;
-    }
+
 
     setCreateMode({
       opening: defaultOpening,
